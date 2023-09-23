@@ -36,11 +36,9 @@ class AuthController extends Controller
         ];
 
         if(Auth::attempt($credentials)) {
-            dd('logado com sucesso');
+            return view('home');
         } else {
-            dd('erro');
-            
-            
+            return back()->with('error', 'E-mail ou Senha inválidos');            
         }
     }
 }
