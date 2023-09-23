@@ -31,11 +31,11 @@
                                 <input type="password" name="password" class="form-control" id="password" required>
                             </div>
                             
+                            <div class="inline">
                             <button type="submit" class="btn btn-primary">Entrar</button>
 
-                            <br>
-                            <br>
-                            <a class="btn btn-success" href="{{ route('register') }}" role="button">Cadastrar</a>                        
+                            <a class="btn btn-success" href="{{ route('register') }}" style="position: absolute; right: 16px;;" role="button">Cadastrar</a> 
+                            </div>
                         </form>
                     </div>
                 </div>

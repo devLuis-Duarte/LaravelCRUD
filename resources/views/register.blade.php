@@ -34,11 +34,12 @@
                                 <label for="password" class="form-label">Senha</label>
                                 <input type="password" name="password" class="form-control" id="password" required>
                             </div>
+
+                            <div class="inline">
                             <button type="submit" class="btn btn-primary">Cadastrar</button>
 
-                            <br>
-                            <br>
-                            <a class="btn btn-success" href="{{ route('login') }}" role="button">Entrar</a>
+                            <a class="btn btn-success" href="{{ route('login') }}" style="position: absolute; right:16px;" role="button">Log-in</a>
+                            </div>
                         </form>
                     </div>
                 </div>
