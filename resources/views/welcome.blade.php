@@ -15,7 +15,12 @@
                         <h1 class="card-title">Login</h1>
                     </div>
                     <div class="card-body">
-                        <form action="" method="POST">
+                    @if(session()->has('error'))
+                        <p class="alert alert-danger">
+                            {{session()->get('error')}}
+                        </p>
+                    @endif
+                        <form action="{{ route('auth') }}" method="POST">
                             @csrf
                             <div class="mb-3">
                                 <label for="email" class="form-label">E-mail</label>
@@ -25,18 +30,12 @@
                                 <label for="password" class="form-label">Senha</label>
                                 <input type="password" name="password" class="form-control" id="password" required>
                             </div>
-                            <div class="mb-3">
-                                <div class="d-grid">
-                                    <button class="btn btn-primary">Entrar</button>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="mb-3">
-                                <div class="d-grid">
-                                  <a href="{{ route('register') }}">Cadastrar</a>
-                                </div>
-                            </div>
                             
+                            <button type="submit" class="btn btn-primary">Entrar</button>
+
+                            <br>
+                            <br>
+                            <a class="btn btn-success" href="{{ route('register') }}" role="button">Cadastrar</a>                        
                         </form>
                     </div>
                 </div>

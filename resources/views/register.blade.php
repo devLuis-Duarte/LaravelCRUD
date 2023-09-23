@@ -34,11 +34,11 @@
                                 <label for="password" class="form-label">Senha</label>
                                 <input type="password" name="password" class="form-control" id="password" required>
                             </div>
-                            <div class="mb-3">
-                                <div class="d-grid">
-                                    <button class="btn btn-primary">Cadastrar</button>
-                                </div>
-                            </div>
+                            <button type="submit" class="btn btn-primary">Cadastrar</button>
+
+                            <br>
+                            <br>
+                            <a class="btn btn-success" href="{{ route('login') }}" role="button">Entrar</a>
                         </form>
                     </div>
                 </div>
