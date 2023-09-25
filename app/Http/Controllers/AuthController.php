@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rules\Password;
 
 class AuthController extends Controller
 {
@@ -14,8 +15,14 @@ class AuthController extends Controller
     }
 
     public function save(Request $request){
+        $request->validate([
+            'email'=> 'required|unique:users',
+            'password' => 'required', 'string',
+            Password::min(8)->letters()->numbers()->mixedCase()->symbols(),
+        ]);
+
         $user = new User();
-        
+
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
@@ -30,10 +37,15 @@ class AuthController extends Controller
     }
 
     public function auth(Request $request){
-        $credentials = [
+        $credentials = $request->validate([
+            'email' => 'required',
+            'password'=> 'required', 'string',
+            Password::min(8)->letters()->numbers()->mixedCase()->symbols(),
+        ],[
             'email' => $request->email,
             'password' => $request->password,
-        ];
+        ]);
+        
 
         if(Auth::attempt($credentials)) {
             return view('home');
